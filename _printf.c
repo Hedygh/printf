@@ -1,28 +1,37 @@
 #include <stdarg.h>
 #include "holberton.h"
 
+/**
+ * get_op - select function for conversion char
+ * @c: char to check
+ * Return: pointer to function
+ */
+
 int (*get_op(char c))(va_list)
 {
 	va_list ap;
-	int i = 0, j;
+	int i = 0;
 
 	flags_p fp[] = {
 		{"c", print_char},
-		//{"s", _puts},
-	//	{"%", _putchar},
-	//	{"d", _itoa},
-	//	{"i", _itoa},
-	};	       
-	while (i < 5)
+		{"s", print_str},
+	};
+	while (i < 2)
 	{
 		if (c == fp[i].c[0])
 		{
-			return fp[j].f;
+			return (fp[i].f);
 		}
 		i++;
 	}
 	return (0);
 }
+
+/**
+ * _printf - Reproduce behavior of printf function
+ * @format: format string
+ * Return: value of printed chars
+ */
 
 int _printf(const char *format, ...)
 {
