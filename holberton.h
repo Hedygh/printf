@@ -4,8 +4,13 @@
 int _printf(const char *format, ...);
 int print_char(va_list ap);
 int print_str(va_list ap);
+int print_nbr(va_list ap);
 int _putchar(char c);
 int _puts(char *str);
+int _nbr_len(int prmNumber);
+char *_itoa(int prmNumber);
+char *_itoa(int prmNumber);
+char *_strdup(char *str);
 
 /**
  * struct flags_printf

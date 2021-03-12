@@ -1,5 +1,6 @@
 #include <stdarg.h>
 #include "holberton.h"
+#include <stddef.h>
 
 /**
  * get_op - select function for conversion char
@@ -9,14 +10,15 @@
 
 int (*get_op(char c))(va_list)
 {
-	va_list ap;
 	int i = 0;
 
 	flags_p fp[] = {
 		{"c", print_char},
 		{"s", print_str},
+		{"i", print_nbr},
+		{"d", print_nbr}
 	};
-	while (i < 2)
+	while (i < 4)
 	{
 		if (c == fp[i].c[0])
 		{
@@ -36,8 +38,7 @@ int (*get_op(char c))(va_list)
 int _printf(const char *format, ...)
 {
 	va_list ap;
-	int sum = 0;
-	int i = 0;
+	int sum = 0, i = 0;
 	int (*func)(va_list);
 
 	va_start(ap, format);
@@ -46,9 +47,16 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			func = get_op(format[i + 1]);
-			func(ap);
-			//increment i
+			if (format[i + 1] == '%')
+				_putchar('%');
+			else
+			{
+				func = get_op(format[i + 1]);
+				if (func == NULL)
+					return (0);
+				func(ap);
+			}
+			/* increment i */
 			i += 2;
 			continue;
 		}
