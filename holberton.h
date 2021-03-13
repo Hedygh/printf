@@ -5,6 +5,7 @@ int _printf(const char *format, ...);
 int print_char(va_list ap);
 int print_str(va_list ap);
 int print_nbr(va_list ap);
+int print_number(int n);
 int _putchar(char c);
 int _puts(char *str);
 int _nbr_len(int prmNumber);
