@@ -16,9 +16,15 @@ int (*get_op(char c))(va_list)
 		{"c", print_char},
 		{"s", print_str},
 		{"i", print_nbr},
-		{"d", print_nbr}
+		{"d", print_nbr},
+		{"b", print_binary},
+		{"o", print_octal},
+		{"x", print_hexa_lower},
+		{"X", print_hexa_upper},
+		{"u", print_unsigned},
+		{"S", print_str_unprintable}
 	};
-	while (i < 4)
+	while (i < 10)
 	{
 		if (c == fp[i].c[0])
 		{
