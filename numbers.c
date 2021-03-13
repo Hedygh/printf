@@ -1,7 +1,36 @@
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "holberton.h"
 
+/**
+ * print_number - display the number contained in an int
+ * @n: int to print
+ * Return: number of char
+ */
+int print_number(int n)
+{
+	unsigned int nb;
+	int count = 0;
+
+	nb = n;
+	if (n < 0)
+	{
+		_putchar('-');
+	}
+	if (nb <= 9)
+	{
+		_putchar(nb + '0');
+		return (1);
+	}
+	if (nb > 9)
+	{
+		count = print_number(nb / 10) + 1;
+		_putchar(nb % 10 + '0');
+		return (count);
+	}
+	return (0);
+}
 /**
  * _nbr_len - length of a number
  * @prmNumber: number
