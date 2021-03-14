@@ -44,14 +44,13 @@ int print_str_unprintable(va_list ap)
 int print_str_reverse(va_list ap)
 {
 	char *argument = va_arg(ap, char *), *str;
-	int size, left, limit, right;
-	char cLeft, cRight;
+	int size, left, limit, right, sum = 0;
 
 	size = _strlen_recursion(argument);
 	right = size - 1;
 	limit = (size % 2 == 0) ? (size + 1) / 2 : (size / 2);
 
-	str = malloc(sizeof(char) * size);
+	str = malloc(sizeof(char) * size + 1);
 
 	if (str == NULL)
 	{
@@ -65,14 +64,17 @@ int print_str_reverse(va_list ap)
 
 	for (left = 0; left < limit; left++)
 	{
-		cLeft = argument[left];
-		cRight = argument[right];
-		str[left] = cRight;
-		str[right] = cLeft;
+		str[left] = argument[right];
+		str[right] = argument[left];
 		right--;
 	}
 
-	return (_puts(str, 0));
+	str[size] = '\0';
+
+	sum = _puts(str, 0);
+	free(str);
+
+	return (sum);
 }
 
 /**

@@ -20,12 +20,11 @@ int _putchar(char c);
 int _puts(char *str, int ascii);
 int _nbr_len(int prmNumber);
 int _strlen_recursion(char *s);
-char *_itoa(int prmNumber);
 int convert_alpha_numeric(int nb, int upper);
 char *convert_rot13(char *str);
 char *convert_base(unsigned long nb, unsigned int base, int upper);
 char *_strdup(char *str);
-char *convert_base_pointer(void *p, int base);
+char *convert_base_pointer(void *p);
 
 /**
  * struct flags_printf - struct conversion to function

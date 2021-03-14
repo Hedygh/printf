@@ -23,7 +23,7 @@ int _putchar(char c)
 int _puts(char *str, int ascii)
 {
 	char *s;
-	int i = 0;
+	int i = 0, sum = 0;
 
 	while (str[i])
 	{
@@ -39,7 +39,9 @@ int _puts(char *str, int ascii)
 			else if (str[i] == 127)
 				write(1, "7", 1);
 			write(1, s, 1);
+			free(s);
 			i++;
+			sum += 3;
 		}
 		else
 		{
@@ -47,7 +49,7 @@ int _puts(char *str, int ascii)
 			i++;
 		}
 	}
-	return (i);
+	return (i + sum);
 }
 
 /**
