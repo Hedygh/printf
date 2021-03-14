@@ -6,6 +6,7 @@ int main(void)
 {
 	char c = 'o';
 	char str[] = "toto";
+	char strR[] = "aDRIen";
 	int i = 32907978, j = 0, k = -97984372, l = INT_MIN;
 	unsigned int a = -225, b = 12 , e = 5, d = 98;
 	void *p = &i;
@@ -39,6 +40,7 @@ int main(void)
 	_printf("%r\n", "Holberton");
 	printf("[adress = %p %p]\n", p, pp);
 	_printf("[adress = %p %p]\n", p, pp);
+	_printf("[rot13 = %R, %R]\n", str, strR);
 
 	return (0);
 }

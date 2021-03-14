@@ -74,3 +74,20 @@ int print_str_reverse(va_list ap)
 
 	return (_puts(str, 0));
 }
+
+/**
+ * print_rot13 - print string with rot13
+ * @ap: arg list
+ * Return: number of printed char
+ */
+
+int print_rot13(va_list ap)
+{
+	int sum;
+	char *str;
+
+	str = convert_rot13(va_arg(ap, char*));
+	sum = _puts(str, 0);
+	free(str);
+	return (sum);
+}
