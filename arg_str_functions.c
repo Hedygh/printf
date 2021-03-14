@@ -35,3 +35,42 @@ int print_str_unprintable(va_list ap)
 {
 	return (_puts(va_arg(ap, char *), 1));
 }
+
+/**
+ * print_str_reverse - reverse a string
+ * @ap: arg list
+ * Return: number printed char
+ */
+int print_str_reverse(va_list ap)
+{
+	char *argument = va_arg(ap, char *), *str;
+	int size, left, limit, right;
+	char cLeft, cRight;
+
+	size = _strlen_recursion(argument);
+	right = size - 1;
+	limit = (size % 2 == 0) ? (size + 1) / 2 : (size / 2);
+
+	str = malloc(sizeof(char) * size);
+
+	if (str == NULL)
+	{
+		return (0);
+	}
+
+	if (size % 2 != 0)
+	{
+		str[limit] = argument[limit];
+	}
+
+	for (left = 0; left < limit; left++)
+	{
+		cLeft = argument[left];
+		cRight = argument[right];
+		str[left] = cRight;
+		str[right] = cLeft;
+		right--;
+	}
+
+	return (_puts(str, 0));
+}
