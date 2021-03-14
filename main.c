@@ -34,6 +34,7 @@ int main(void)
 	_printf("carriage return %S\n", "test1 \a test2");
 	_printf("carriage return %S\n", "test1 \v test2");
 	_printf("carriage return %S\n", "test1 \r test2");
+	_printf("%r\n", "Holberton");
 
 	return (0);
 }
