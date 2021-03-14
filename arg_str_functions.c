@@ -69,6 +69,8 @@ int print_str_reverse(va_list ap)
 		right--;
 	}
 
+	str[size] = '\0';
+
 	sum = _puts(str, 0);
 	free(str);
 

@@ -43,6 +43,7 @@ int print_octal(va_list ap)
 
 	str = convert_base(va_arg(ap, unsigned int), 8, 0);
 	sum = _puts(str, 0);
+	free(str);
 	return (sum);
 }
 
@@ -59,6 +60,7 @@ int print_hexa_lower(va_list ap)
 
 	str = convert_base(va_arg(ap, unsigned int), 16, 0);
 	sum = _puts(str, 0);
+	free(str);
 	return (sum);
 }
 
@@ -75,5 +77,6 @@ int print_hexa_upper(va_list ap)
 
 	str = convert_base(va_arg(ap, unsigned int), 16, 1);
 	sum = _puts(str, 0);
+	free(str);
 	return (sum);
 }
