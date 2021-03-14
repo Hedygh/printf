@@ -12,6 +12,7 @@ int print_hexa_upper(va_list ap);
 int print_unsigned(va_list ap);
 int print_str_unprintable(va_list ap);
 int print_str_reverse(va_list ap);
+int print_ptr(va_list ap);
 int print_number(int n);
 int print_unsigned_number(unsigned int n);
 int _putchar(char c);
@@ -20,11 +21,12 @@ int _nbr_len(int prmNumber);
 int _strlen_recursion(char *s);
 char *_itoa(int prmNumber);
 int convert_alpha_numeric(int nb, int upper);
-char *convert_base(unsigned int nb, int base, int upper);
+char *convert_base(unsigned long nb, unsigned int base, int upper);
 char *_strdup(char *str);
+char *convert_base_pointer(void *p, int base);
 
 /**
- * struct flags_printf
+ * struct flags_printf - struct conversion to function
  * @c: flag string
  * @f: pointer to func
  */

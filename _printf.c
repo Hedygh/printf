@@ -23,9 +23,10 @@ int (*get_op(char c))(va_list)
 		{"X", print_hexa_upper},
 		{"u", print_unsigned},
 		{"S", print_str_unprintable},
-		{"r", print_str_reverse}
+		{"r", print_str_reverse},
+		{"p", print_ptr},
 	};
-	while (i < 11)
+	while (i < 12)
 	{
 		if (c == fp[i].c[0])
 		{

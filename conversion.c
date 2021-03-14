@@ -22,11 +22,11 @@ int convert_alpha_numeric(int nb, int upper)
  * Return: converted number to string
  */
 
-char *convert_base(unsigned int nb, unsigned int base, int upper)
+char *convert_base(unsigned long nb, unsigned int base, int upper)
 {
 	int i = 0;
 	char *str;
-	unsigned int nbr = nb;
+	unsigned long nbr = nb;
 
 	while (nbr >= base)
 	{
@@ -45,5 +45,22 @@ char *convert_base(unsigned int nb, unsigned int base, int upper)
 		nb /= base;
 		i--;
 	}
+	return (str);
+}
+
+/**
+ * convert_base_pointer - convert pointer void to ul
+ * @p: pointer
+ * @base: base for conversion
+ * Return: converted string
+ */
+
+char *convert_base_pointer(void *p, int base)
+{
+	unsigned long adress;
+	char *str;
+
+	adress = (unsigned long) p;
+	str = convert_base(adress, 16, 0);
 	return (str);
 }
