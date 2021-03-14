@@ -52,11 +52,10 @@ char *convert_base(unsigned long nb, unsigned int base, int upper)
 /**
  * convert_base_pointer - convert pointer void to ul
  * @p: pointer
- * @base: base for conversion
  * Return: converted string
  */
 
-char *convert_base_pointer(void *p, int base)
+char *convert_base_pointer(void *p)
 {
 	unsigned long adress;
 	char *str;

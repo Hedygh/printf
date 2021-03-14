@@ -26,7 +26,7 @@ int print_ptr(va_list ap)
 	int sum = 0;
 	void *p = va_arg(ap, void*);
 
-	str = convert_base_pointer(p, 16);
+	str = convert_base_pointer(p);
 	sum += _puts("0x", 0);
 	sum += _puts(str, 0);
 	free(str);
