@@ -36,7 +36,7 @@ int (*get_op(char c))(va_list)
 		}
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
 
 /**
@@ -68,7 +68,8 @@ int _printf(const char *format, ...)
 			i += 2;
 			continue;
 		}
-		sum += _putchar(format[i]);
+		_putchar(format[i]);
+		sum++;
 		i++;
 	}
 	va_end(ap);
