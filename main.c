@@ -21,6 +21,7 @@ int main(void)
 {
 	char str[] = "toto";
 	char strR[] = "aDRIen";
+	char strR1[] = "salut comment vas tu";
 	int len1, len2, i = INT_MAX;
 	unsigned int ui;
 	void *addr, *p, *pp;
@@ -187,7 +188,13 @@ int main(void)
 	 * Rot13 conversion test
 	 */
 	printf("\n----------------------- Rot13 conversion test ----------------------\n");
-	len1 = _printf("[rot13 = %R, %R]\n", str, strR);
+	len1 = _printf("[rot13 = %R]\n", str);
+	printf("Length:[%d]\n", len1);
+
+	len1 = _printf("[rot13 = %R]\n", strR);
+	printf("Length:[%d]\n", len1);
+
+	len1 = _printf("[rot13 = %R]\n", strR1);
 	printf("Length:[%d]\n", len1);
 
 	/**
