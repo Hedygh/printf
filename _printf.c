@@ -51,7 +51,7 @@ int _printf(const char *format, ...)
 	int sum = 0, i = 0;
 	int (*func)(va_list);
 
-	if (!format)
+	if (!format || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
 	va_start(ap, format);
 
