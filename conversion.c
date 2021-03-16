@@ -55,12 +55,12 @@ char *convert_base(unsigned long nb, unsigned int base, int upper)
  * Return: converted string
  */
 
-char *convert_base_pointer(void *p)
+char *convert_base_pointer(unsigned long p)
 {
 	unsigned long adress;
 	char *str;
 
-	adress = (unsigned long) p;
+	adress = p;
 	str = convert_base(adress, 16, 0);
 	return (str);
 }

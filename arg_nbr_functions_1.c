@@ -24,7 +24,7 @@ int print_ptr(va_list ap)
 {
 	char *str;
 	int sum = 0;
-	void *p = va_arg(ap, void*);
+	unsigned long p = (unsigned long) va_arg(ap, void*);
 
 	if (!p)
 	{
