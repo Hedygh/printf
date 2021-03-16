@@ -59,14 +59,20 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			func = get_op(format[i + 1]);
+			if (format[i + 1] != '\0')
+				func = get_op(format[i + 1]);
 			if (func == NULL)
 			{
-				return (-1);
+				_putchar(format[i]);
+				sum++;
+				i++;
 			}
-			sum += func(ap);
-			i += 2;
-			continue;
+			else
+			{
+				sum += func(ap);
+				i += 2;
+				continue;
+			}
 		}
 		else
 		{
