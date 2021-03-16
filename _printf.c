@@ -68,9 +68,12 @@ int _printf(const char *format, ...)
 			i += 2;
 			continue;
 		}
-		_putchar(format[i]);
-		sum++;
-		i++;
+		else
+		{
+			_putchar(format[i]);
+			sum++;
+			i++;
+		}
 	}
 	va_end(ap);
 	return (sum);
