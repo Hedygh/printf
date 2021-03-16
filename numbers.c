@@ -47,7 +47,7 @@ int print_number(int n)
 	}
 	if (nb <= 9)
 	{
-		count +=_putchar(nb + '0');
+		count += _putchar(nb + '0');
 		return (count);
 	}
 	if (nb > 9)
