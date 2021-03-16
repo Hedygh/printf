@@ -8,7 +8,7 @@
  * Return: pointer to function
  */
 
-int (*get_op(char c))(va_list)
+int (*get_op(const char c))(va_list)
 {
 	int i = 0;
 
