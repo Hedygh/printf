@@ -49,7 +49,7 @@ int _printf(const char *format, ...)
 {
 	va_list ap;
 	int sum = 0, i = 0;
-	int (*func)(va_list);
+	int (*func)();
 
 	if (!format || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
@@ -59,18 +59,27 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			func = get_op(format[i + 1]);
+			if (format[i + 1] != '\0')
+				func = get_op(format[i + 1]);
 			if (func == NULL)
 			{
-				return (-1);
+				_putchar(format[i]);
+				sum++;
+				i++;
 			}
-			sum += func(ap);
-			i += 2;
-			continue;
+			else
+			{
+				sum += func(ap);
+				i += 2;
+				continue;
+			}
 		}
-		_putchar(format[i]);
-		sum++;
-		i++;
+		else
+		{
+			_putchar(format[i]);
+			sum++;
+			i++;
+		}
 	}
 	va_end(ap);
 	return (sum);
