@@ -1,7 +1,7 @@
 #include "holberton.h"
 #include <stdarg.h>
 #include <stdlib.h>
-#include <stdio.h>
+#include <unistd.h>
 
 /**
  * print_char - print single char
@@ -11,7 +11,14 @@
 
 int print_char(va_list ap)
 {
-	return (_putchar(va_arg(ap, int)));
+	char c = va_arg(ap, int);
+
+	if (c == '\0')
+	{
+		return (write(1, &c, 1));
+	}
+	_putchar(c);
+	return (1);
 }
 
 /**
