@@ -51,6 +51,8 @@ int _printf(const char *format, ...)
 	int sum = 0, i = 0;
 	int (*func)(va_list);
 
+	if (!format)
+		return (-1);
 	va_start(ap, format);
 
 	while (format[i])
@@ -60,7 +62,7 @@ int _printf(const char *format, ...)
 			func = get_op(format[i + 1]);
 			if (func == NULL)
 			{
-				return (0);
+				return (-1);
 			}
 			sum += func(ap);
 			i += 2;
