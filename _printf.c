@@ -49,7 +49,7 @@ int _printf(const char *format, ...)
 {
 	va_list ap;
 	int sum = 0, i = 0;
-	int (*func)(va_list);
+	int (*func)();
 
 	if (!format || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
