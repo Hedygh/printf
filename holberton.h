@@ -25,7 +25,7 @@ int convert_alpha_numeric(int nb, int upper);
 char *convert_rot13(char *str);
 char *convert_base(unsigned long nb, unsigned int base, int upper);
 char *_strdup(char *str);
-char *convert_base_pointer(void *p);
+char *convert_base_pointer(unsigned long p);
 
 /**
  * struct flags_printf - struct conversion to function
