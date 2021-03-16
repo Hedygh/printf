@@ -31,25 +31,24 @@ int _puts(char *str, int ascii)
 		{
 
 			s = convert_base(str[i], 16, 1);
-			write(1, "\\x", 2);
+			sum += write(1, "\\x", 2);
 			if (str[i] > 0 && str[i] < 16)
-				write(1, "0", 1);
+				sum += _putchar('0');
 			else if (str[i] > 15 && str[i] < 32)
-				write(1, "1", 1);
+				sum += _putchar('1');
 			else if (str[i] == 127)
-				write(1, "7", 1);
-			write(1, s, 1);
+				sum += _putchar('7');
+			sum += _putchar(s[0]);
 			free(s);
 			i++;
-			sum += 3;
 		}
 		else
 		{
-			write(1, &str[i], 1);
+			sum += _putchar(str[i]);
 			i++;
 		}
 	}
-	return (i + sum);
+	return (sum);
 }
 
 /**
