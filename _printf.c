@@ -51,6 +51,8 @@ int _printf(const char *format, ...)
 	int sum = 0, i = 0;
 	int (*func)(va_list);
 
+	if (!format)
+		return (-1);
 	va_start(ap, format);
 
 	while (format[i])
