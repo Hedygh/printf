@@ -25,9 +25,10 @@ int (*get_op(char c))(va_list)
 		{"S", print_str_unprintable},
 		{"r", print_str_reverse},
 		{"p", print_ptr},
-		{"R", print_rot13}
+		{"R", print_rot13},
+		{"%", print_percent}
 	};
-	while (i < 13)
+	while (i < 14)
 	{
 		if (c == fp[i].c[0])
 		{
@@ -56,16 +57,12 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			if (format[i + 1] == '%')
-				_putchar('%');
-			else
+			func = get_op(format[i + 1]);
+			if (func == NULL)
 			{
-				func = get_op(format[i + 1]);
-				if (func == NULL)
-					return (0);
-				sum += func(ap);
+				return (0);
 			}
-			/* increment i */
+			sum += func(ap);
 			i += 2;
 			continue;
 		}
