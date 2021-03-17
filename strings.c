@@ -27,18 +27,13 @@ int _puts(char *str, int ascii)
 
 	while (str[i])
 	{
-		if (((str[i] > 0 && str[i] < 32) || str[i] == 127) && ascii)
+		if (((str[i] >= 0 && str[i] < 32) || str[i] >= 127) && ascii)
 		{
-
 			s = convert_base(str[i], 16, 1);
 			sum += write(1, "\\x", 2);
-			if (str[i] > 0 && str[i] < 16)
+			if (str[i] >= 0 && str[i] < 16)
 				sum += _putchar('0');
-			else if (str[i] > 15 && str[i] < 32)
-				sum += _putchar('1');
-			else if (str[i] == 127)
-				sum += _putchar('7');
-			sum += _putchar(s[0]);
+			sum += _puts(s, 0);
 			free(s);
 			i++;
 		}
