@@ -33,6 +33,8 @@ int print_ptr(va_list ap)
 	}
 
 	str = convert_base_pointer(p);
+	if (!str)
+		return (0);
 	sum += _puts("0x", 0);
 	sum += _puts(str, 0);
 	free(str);
