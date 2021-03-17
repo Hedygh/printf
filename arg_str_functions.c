@@ -126,6 +126,8 @@ int print_rot13(va_list ap)
 	}
 
 	str = convert_rot13(argument);
+	if (!str)
+		return (0);
 	sum = _puts(str, 0);
 	free(str);
 	return (sum);

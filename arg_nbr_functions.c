@@ -31,6 +31,8 @@ int print_binary(va_list ap)
 		return (sum);
 	}
 	str = convert_base(argument, 2, 0);
+	if (!str)
+		return (0);
 	sum = _puts(str, 0);
 	free(str);
 	return (sum);
