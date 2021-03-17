@@ -27,7 +27,7 @@ int print_binary(va_list ap)
 
 	if (!argument)
 	{
-		sum += _puts("00", 0);
+		sum += _puts("0", 0);
 		return (sum);
 	}
 	str = convert_base(argument, 2, 0);
