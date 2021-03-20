@@ -1,6 +1,6 @@
 .\" Manpage for nuseradd.
 .\" Contact vivek@nixcraft.net.in to correct errors or typos.
-.TH man 8 "06 May 2010" "1.0" "nuseradd man page"
+.TH printf 3 "17 March 2021" "1.0" "printf man page"
 .SH NAME
 .P
 .B
